@@ -41,14 +41,9 @@ if (this.productService.cart) {
 } else {
   prod.quantity = 1;
   prod.total =   +prod.cost;
-  this.productService.cart.push({
-    _id : prod._id,
-    name: prod.name,
-    description: prod.description,
-    cost: prod.cost,
-    quantity: prod.quantity,
-    total: +prod.cost
-  });
+  const tempArray = [];
+  tempArray.push(prod);
+this.productService.cart = tempArray;
 }
 localStorage.setItem('cart' , JSON.stringify( this.productService.cart));
 console.log(this.productService.cart);
